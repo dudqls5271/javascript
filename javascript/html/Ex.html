@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+    <script type="text/javascript">
+      // 자바스크립트 경로는 (/script) 를 꼭 뒤에 써줄 것
+      function chColor() {
+        //alert("sucess");
+        //alert(document.frm.cc.value); // cc = 배경색의 value값 출력
+        document.body.bgColor = document.frm.cc.value;
+        document.body.text = document.frm.tc.value;
+      }
+    </script>
+  </head>
+  <body>
+    * 이벤트 연습 *
+    <br />
+    <form name="frm">
+      <table border="1">
+        <tr>
+          <td colspan="2" style="text-align: center;">색상 선택</td>
+        </tr>
+        <tr>
+          <td>배경색</td>
+          <td>
+            <select name="cc" size="1">
+              <option value="black">검정</option>
+              <option value="blue">파랑</option>
+              <option value="green">초록</option>
+              <option value="yellow">노랑</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>글자색</td>
+          <td>
+            <select name="tc" size="1">
+              <option value="black">검정1</option>
+              <option value="blue">파랑1</option>
+              <option value="green">초록1</option>
+              <option value="yellow">노랑1</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align: center;">
+            <input type="button" name="buton" value="변경확인" onclick="chColor()" />
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
+
+출처: https://note.espriter.net/1118 [에스프리터]

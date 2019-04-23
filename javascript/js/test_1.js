@@ -42,3 +42,10 @@ select_bold.addEventListener("change", function() {
     ex_h1.style.fontWeight = "400";
   }
 });
+
+function button1_click() {
+  ex_h1.style.color = "black";
+  ex_h1.style.fontSize = "2em";
+  ex_h1.style.fontWeight = "bold";
+  alert("리셋 (Reset)");
+}

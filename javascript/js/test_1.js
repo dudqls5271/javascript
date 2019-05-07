@@ -5,7 +5,7 @@ let select_size = document.getElementById("select_size");
 let select_bold = document.getElementById("select_bold");
 let ex_h1 = document.getElementById("Ex_h1");
 
-select_color.addEventListener("change", function() {
+select_color.addEventListener("change", function () {
   //아마 function의 change을 가져온다
   console.log(select_color.value);
   // 콘솔의 값을 보기 위해 지정 해주는것 이다.
@@ -24,7 +24,7 @@ select_color.addEventListener("change", function() {
   }
 });
 
-select_size.addEventListener("change", function() {
+select_size.addEventListener("change", function () {
   console.log(select_size.value);
   if (select_size.value == "10") {
     ex_h1.style.fontSize = "10px";
@@ -37,7 +37,7 @@ select_size.addEventListener("change", function() {
   }
 });
 
-select_bold.addEventListener("change", function() {
+select_bold.addEventListener("change", function () {
   console.log(select_bold.value);
   if (select_bold.value == "100") {
     ex_h1.style.fontWeight = "100px";
@@ -49,7 +49,6 @@ select_bold.addEventListener("change", function() {
     ex_h1.style.fontWeight = "400";
   }
 });
-ㄴ;
 
 function button1_click() {
   //onclick="button1_click();"의 이벤트을 주는거임

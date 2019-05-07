@@ -1,56 +1,38 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Insert title here</title>
-    <script type="text/javascript">
-      // 자바스크립트 경로는 (/script) 를 꼭 뒤에 써줄 것
-      function chColor() {
-        //alert("sucess");
-        //alert(document.frm.cc.value); // cc = 배경색의 value값 출력
-        document.body.bgColor = document.frm.cc.value;
-        document.body.text = document.frm.tc.value;
-      }
-    </script>
-  </head>
-  <body>
-    * 이벤트 연습 *
-    <br />
-    <form name="frm">
-      <table border="1">
-        <tr>
-          <td colspan="2" style="text-align: center;">색상 선택</td>
-        </tr>
-        <tr>
-          <td>배경색</td>
-          <td>
-            <select name="cc" size="1">
-              <option value="black">검정</option>
-              <option value="blue">파랑</option>
-              <option value="green">초록</option>
-              <option value="yellow">노랑</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td>글자색</td>
-          <td>
-            <select name="tc" size="1">
-              <option value="black">검정1</option>
-              <option value="blue">파랑1</option>
-              <option value="green">초록1</option>
-              <option value="yellow">노랑1</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="2" style="text-align: center;">
-            <input type="button" name="buton" value="변경확인" onclick="chColor()" />
-          </td>
-        </tr>
-      </table>
-    </form>
-  </body>
-</html>
+<html lang="en">
 
-출처: https://note.espriter.net/1118 [에스프리터]
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+
+<body>
+  <h1 id="Ex_h1">연습용 문장입니다.</h1>
+  글자색 :&nbsp; <br>
+  <input type="checkbox" name="rad" value="rad" onclick="rad(this.value);"> 레드 <br>
+  <input type="checkbox" name="blue" value="blue" onclick="rad(this.value);"> 블루 <br>
+  <input type="checkbox" name="green" value="green" onclick="rad(this.value);"> 그린 <br>
+  <input type="checkbox" name="purple" value="purple" onclick="rad(this.value);"> 퍼플 <br>
+  </select>&nbsp; 사이즈 :&nbsp;
+  <select id="select_size">
+    <option value="10">10px</option>
+    <option value="15">15px</option>
+    <option value="20">20px</option>
+    <option value="30">30px</option>
+  </select>&nbsp; 굵기 :&nbsp;
+  <select id="select_bold">
+    <option value="100">100</option>
+    <option value="200">200</option>
+    <option value="300">300</option>
+    <option value="400">400</option>
+  </select>
+  <input type="button" id="OK" value="OK" onclick="button_ok();">
+  <br />
+  <input type="button" id="button1" onclick="button1_click();" value="Reset" />
+  <!-- input 타입을 버튼을 주어서 버트을 만들어 주고 onclick로 이벤트를 주어준다
+    value는 reset로 설정 -->
+  <script src="../js/test_1.js"></script>
+  <!-- jsp 파일의 경로를 지성 위에다가 하면 않됨 -->
+</body>
+
+</html>

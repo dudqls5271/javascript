@@ -1,0 +1,13 @@
+<script>
+    var foods = document.getElementsByName('food');
+    var food_value; // 여기에 선택된 radio 버튼의 값이 담기게 된다.
+    for (var i = 0; i < foods.length; i++) {
+        if (foods[i].checked) {
+            food_value = foods[i].value;
+        }
+    }
+</script>
+
+
+<input type="radio" name="food" value="피자">피자
+<input type="radio" name="food" value="치킨">치킨

@@ -1,0 +1,18 @@
+table {
+    width: 50%;
+    height: 100px;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    color: red;
+}
+
+.first {
+    text-align: center;
+}

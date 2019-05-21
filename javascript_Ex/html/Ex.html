@@ -1,139 +1,140 @@
-<!DOCTYPE html>
-<html lang="en">
+<script>
+  function fn_addRow(addData, chkCnt) {
 
-<head>
-  <title>회원가입</title>
-</head>
-<link rel="stylesheet" href="..//css/index.css">
+    if (Number(chkCnt) > 0) {
 
-<body>
-  <h1>◎ 회원가입 ◎ </h1>
-  <p>색이 변하면 OK</p>
-  <table border="1">
-    <tr>
-      <td colspan="4" class="first">게인정보 입력</td>
-    </tr>
-    <tr>
-      <td>이름</td>
-      <td colspan="2"><input type='name' id='name' placeholder="이름" />이름</td>
-      <td><input type='button' onclick='input_name()' value='확인' /> <input type="button" onclick="input_reset();"
-          value="취소">
-      </td>
-    </tr>
-    <tr>
-      <td>성별</td>
-      <td colspan="3"><input type="radio" name="domain" value="남자">남자
-        <input type="radio" name="domain" value="여자">여자</td>
-    </tr>
-    <tr>
-      <td>직업</td>
-      <td colspan="3" id="ex_h1">학생 　　
+      var tblObj = $("#testTbl > tbody:last");
 
-        <select id="select_color">
-          <option value="red">레드</option>
-          <!-- value 값을 줘서 콘솔 값을 나오게 하는거임
-                ID, class 비슷 한거임 -->
-          <option value="blue">학생</option>
-          <option value="green">회사원</option>
-          <option value="purple">무식</option>
-        </select>
-        <!--         
-        <select id="job_iid">
-          <option value="st">학생</option>
-          <option value="ra">회사원</option>
-          <option value="go">공무원</option>
-          <option value="qo">무직</option>
-        </select> -->
-      </td>
-    </tr>
-    <tr>
-      <td>생년월일</td>
-      <td colspan="2"><input type="date" size="20" id="bar" placeholder="생년월일 예)021003" maxlength="6"> 예)2002년 10월
-        3일
-      </td>
-      <td><input type="button" value="확인" onclick="bar_date();"></td>
-    </tr>
-    <tr>
-      <td>주민득록번호</td>
-      <td colspan="2"><input type="text" name="unum1" id="unum1" size="12" maxlength="6">-</input>
-        <input type="password" name="unum2" id="unum2" size="12" maxlength="7"></input> 13자리 입력
-      </td>
-      <td><input type="button" value="검사" font-s onclick="validate();" /></td>
-    </tr>
-    <tr>
-      <td>전화번호 입력</td>
-      <td colspan="4"><input type="tel" size="20"> - 없이 입력 <a href="">개인정보 동의</a> <input type="radio" name="chk_info"
-          value="동의" onclick="aggre();">동의
-        <input type="radio" name="chk_info" value="비동의">비동의</td>
-      <!-- <td><input type="button" value="확인"> </td> -->
-    </tr>
-    <!-- </table>
-  <table border="1"> -->
-    <tr>
-      <td colspan="4" class="first">가입 정보 입력</td>
-    </tr>
+      for (var k = 0; k < Number(chkCnt); k++) {
+
+        var orw = $("<tr></tr>");
+
+        var rChk = $("<td><input type='checkbox' name='chkObject' value='" + addData[k].dbKey + "'></td>");
+
+        var rName = $("<td></td>").text(addData[k].name);
+
+        var rAge = $("<td></td>").text(addData[k].age);
+
+        var rGender = $("<td></td>").text(addData[k].gender);
 
 
 
-    <tr>
-      <td>아이디 입력</td>
-      <td colspan="2" class="Ex"> <input type="id" size="20" placeholder="아이디 입력" id="id_name"> 아이디</td>
-      <td><input type="button" value="중복 확인" onclick="id_chat();"></td>
-    </tr>
+        tblObj.append(row);
 
-    <tr>
-      <td rowspan="2">비밀번호 입력 <br> 비밀번호 재입력</td>
-      <td colspan="2"><input type="PASSWORD" size="20" placeholder="비밀번호 입력">비밀번호 8글자 이상</td>
-      <td rowspan="2"><input type="button" value="확인"></td>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="2"><input type="PASSWORD" size="20" placeholder="비밀번호 재입력">위와 같도록</td>
-    </tr>
-    <tr>
-      <td>이메일 입력</td>
-      <td colspan="2">공지 메일 <input type="email" size="15" placeholder="이메일 아이디 입력">@
-        <select id="mail1">
-          <option value="naver">naver.com</option>
-          <option value="gmail">gmail.com</option>
-          <option value="daum">daum.net</option>
-          <option value="hanmail">hanmail.com</option>
-        </select>이메일 선택 <br> 이메일 수신 동의 <input type="radio" name="email" value="동의">동의 <input type="radio" name="email"
-          value="비동의">비동의
-        <br>
-        <br>
-        광고 메일 <input type="email" size="15" placeholder="이메일 아이디 입력">@
-        <select id="mail2">
-          <option value="naver">naver.com</option>
-          <option value="gmail">gmail.com</option>
-          <option value="daum">daum.net</option>
-          <option value="hanmail">hanmail.com</option>
-        </select>이메일 선택 <br> 이메일 수신 동의 <input type="radio" name="email" value="동의">동의 <input type="radio" name="email"
-          value="비동의">비동의
-        <br>
-        <br>
-        업무 메일 <input type="email" size="15" placeholder="이메일 아이디 입력">@
-        <select id="mail3">
-          <option value="naver">naver.com</option>
-          <option value="gmail">gmail.com</option>
-          <option value="daum">daum.net</option>
-          <option value="hanmail">hanmail.com</option>
-        </select>이메일 선택 <br> 이메일 수신 동의 <input type="radio" name="email" value="동의">동의 <input type="radio" name="email"
-          value="비동의">비동의
-      </td>
-      <td><input type="button" value="이메일 전송"></td>
-    </tr>
-    <tr>
-      <td>닉네임</td>
-      <td colspan="2"><input type="text" size="18" placeholder="닉네임 입력"></td>
-      <td><input type="button" value="중복 확인"></td>
-    </tr>
-  </table>
-  <br>
-  <center><input type="submit" class="ok" value="확인">
-    <input type="submit" class="ok" value="취소"></center>
-  <script src="../js/Ex.js"></script>
-  <script src="../number.js"></script>
-</body>
+        row.append(rChk);
 
-</html>
+        row.append(rName);
+
+        row.append(rAge);
+
+        row.append(rGender);
+
+      }
+
+    }
+
+  }
+
+  function fn_delRow(chkObjNm) {
+
+    if ($("input[name=" + chkObjNm + "]").is(":checked")) {
+
+      if (confirm("삭제 하시겠습니까?")) {
+
+        for (var i = $("[name='" + chkObjNm + "']:checked").length - 1; i > -1; i--) {
+
+          $("[name='" + chkObjNm + "']:checked").eq(i).closest("tr").remove();
+
+        }
+
+      }
+
+    } else {
+
+      alert("선택된 데이터가 없습니다.");
+
+    }
+
+  }
+
+</script>
+
+
+
+<table summary="Test" cellpadding="0" cellspacing="0" id="testTbl">
+
+  <caption> Test </caption>
+
+  <colgroup>
+
+    <col width="10%" />
+
+    <col width="30%" />
+
+    <col width="30%" />
+
+    <col width="30%" />
+
+  </colgroup>
+
+  <thead>
+
+    <th scope="col"><input type="checkbox" onClick="fn_allChecked();" /></th>
+
+    <th scope="col">성명</th>
+
+    <th scope="col">나이</th>
+
+    <th scope="col">성별</th>
+
+  </thead>
+
+  <tbody>
+
+    <c:choose>
+
+      <c:when test="${!empty testList}">
+
+        <c:forEach begin="0" var="testList" items="${testList}" varStatus="index">
+
+          <tr>
+
+            <td></td>
+
+            <td>${testList.testName}</td>
+
+            <td>${testList.testAge}</td>
+
+            <td>${testList.testGender}</td>
+
+          </tr>
+
+        </c:forEach>
+
+      </c:when>
+
+      <c:otherwise>
+
+        <tr>
+          <td colspan="4">검색결과가 없습니다.</td>
+        </tr>
+
+      </c:otherwise>
+
+    </c:choose>
+
+  </tbody>
+
+</table>
+
+<div>
+
+  <a href="#" onClick="fn_btnChoice()">선택</a>
+
+</div>
+
+<div>
+
+  <a href="#" onClick="fn_delRow('chkObject');">삭제</a>
+
+</div>

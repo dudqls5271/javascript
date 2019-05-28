@@ -25,7 +25,27 @@
     padding: 30px 30px;
     text-align: center;
     border-radius: 5px;
-    width: 50%;
+    width: 30%;
+    height: 40%;
+}
+
+#car {
+    background-color: white;
+     width:300px;
+     height:30px;
+     
+}
+
+#title {
+    background-color: white;
+    width:300px;
+    height:20px;
+}
+
+#name {
+    background-color: white;
+    width:300px;
+    height:20px;
 }
 
 h1 {

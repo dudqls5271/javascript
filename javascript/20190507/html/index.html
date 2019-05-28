@@ -34,9 +34,9 @@
                 <th>수정/삭제</th>
             </tr>
             <tr>
-                <td><input type="checkbox"></td>
-                <td>유머</td>
-                <td>제목11111111111111111111111111111111111111111</td>
+                <td><input type="checkbox" class="checkbox" data-num="3"></td>
+                <td>교육</td>
+                <td>제목1111111111111111111111111111111111111111</td>
                 <td>fkfkfk9</td>
                 <td>2019-1-1</td>
                 <td>
@@ -44,7 +44,7 @@
                 </td>
             </tr>
             <tr>
-                <td><input type="checkbox"></td>
+                <td><input type="checkbox" class="checkbox" data-num="2"></td>
                 <td>교육</td>
                 <td>제목222222222222222222222222222222222222222</td>
                 <td>fkfkfk9</td>
@@ -54,7 +54,7 @@
                 </td>
             </tr>
             <tr>
-                <td><input type="checkbox"></td>
+                <td><input type="checkbox" class="checkbox" data-num="1"></td>
                 <td>건강</td>
                 <td>제목3333333333333333333333333333333333333333</td>
                 <td>fkfkfk9</td>
@@ -75,9 +75,22 @@
         <!-- 모달창에 들어갈 내용 -->
         <div class="write_section">
             <h1></h1>
-            <input type="text" placeholder="카테고리" id="car"> <input type="text" placeholder="제목" id="title"><input
-                type='name' id='name' placeholder="이름" /> <br>
-            <button id="modalWriteSubmitBtn" class=butb value="글쓰기"> 글쓰기 </button> <button id="modalWriteCloseBtn"
+            <input type="hidden" id="row_num">
+            <select id="car">
+                <option value="유머">유머</option>
+                <option value="게임">게임</option>
+                <option value="건강">건강</option>
+                <option value="스포츠">스포츠</option>
+            </select>
+            <br>
+            <br>
+            <input type="text" placeholder="제목" id="title">
+            <br>
+            <br>
+            <input type='name' id='name' placeholder="이름" />
+            <br>
+            <br>
+            <button id="modalWriteSubmitBtn" class=butb value="글쓰기"> 글쓰기</button> <button id="modalWriteCloseBtn"
                 class="btn">뒤로가기</button>
         </div>
     </div>

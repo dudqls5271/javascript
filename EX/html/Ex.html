@@ -1,73 +1,66 @@
-<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
-<html>
+<!doctype html>
+<html lang="en">
 
 <head>
-  <title> 동적으로 행 삽입하기 스크립트 </title>
-  <script language="javascript">
-    // 입력폼추가하기
-    function addField() {
+  <meta charset="UTF-8">
+  <title>check박스 체크 여부 확인하기</title>
 
-      var addPlace = document.all.insertPlace; // 추가될테이블장소(2열)
-      var addRow = addPlace.insertRow();   // 행
-      addRow.onmouseover = function () { addPlace.clickedRowIndex = this.rowIndex; }
-      var addCol1 = addRow.insertCell();   // 열
-      var addCol2 = addRow.insertCell();   // 열
-      addCol1.innerHTML = "<input type='checkbox' name='is_use'><input type='text' name='testing'>";
-      addCol2.innerHTML = "<input type='button' value='삭제' onclick='delOneField();'>";
-    }
+  <script type="text/javascript">
+    function CheckForm(Join) {
 
-    // 입력폼삭제하기 _ 한행씩
-    function delOneField() {
+      //체크박스 체크여부 확인 [하나]
+      var chk1 = document.frmJoin.U_checkAgreement1.checked;
+      var chk2 = document.frmJoin.U_checkAgreement2.checked;
 
-      var delPlace = document.all.insertPlace; // 삭제될테이블장소(2열)
-
-      if (document.all.testing.length > 1) {
-        // delPlace.deleteRow();      // 참고 : 위에서부터 지움
-        delPlace.deleteRow(delPlace.clickedRowIndex); // 해당인덱스번호부터 지움
-      } else {
-        alert("마지막 행은 삭제할 수 없습니다.!");
+      if (!chk1) {
+        alert('약관1에 동의해 주세요');
+        return false;
       }
-    }
+      if (!chk2) {
+        alert('약관2에 동의해 주세요');
+        return false;
+      }
 
-    // 입력폼삭제하기 _ 체크박스체크한행모두
-    function delCheckField() {
-
-      var delPlace = document.all.insertPlace; // 삭제될테이블장소(2열)
-      var isUse = document.all.is_use;   // 체크박스
-
-      for (var i = 0; i < isUse.length; i++) {
-        if (isUse[i].checked) {
-          if (isUse.length > 1) {
-            delPlace.deleteRow(i);   // 체크된행삭제
-            i--;       // 전체적으로 isUse배열이 감소되기때문
-          } else {
-            alert("마지막 행은 삭제할 수 없습니다.!");
-            isUse[i].checked = false;
-          }
+      //체크박스 체크여부 확인 [동일 이름을 가진 체크박스 여러개일 경우]
+      var isSeasonChk = false;
+      var arr_Season = document.getElementsByName("SEASON[]");
+      for (var i = 0; i < arr_Season.length; i++) {
+        if (arr_Season[i].checked == true) {
+          isSeasonChk = true;
+          break;
         }
       }
+
+      if (!isSeasonChk) {
+        alert("계절의 종류를 한개 이상 선택해주세요.");
+        return false;
+      }
+
     }
-//-->
+
+
   </script>
 </head>
 
 <body>
-  <table width="100" border="1" cellspacing="0" cellpadding="0">
-    <tr>
-      <td align="right"><input type="button" value="추가" onclick="addField();"></td>
-      <td align="right"><input type="button" value="삭제" onclick="delCheckField();"></td>
-    </tr>
-    <tr>
-      <td>
-        <table id="insertPlace">
-          <tr onMouseover="document.all.insertPlace.clickedRowIndex=this.rowIndex">
-            <td><input type="checkbox" name="is_use"><input type="text" name="testing" value=""></td>
-            <td><input type="button" value="삭제" onclick="delOneField();"></td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-  </table>
+
+
+  <form name="frmJoin" action="" onSubmit="return CheckForm(this)">
+    <input type="checkbox" name="U_checkAgreement1" id="U_checkAgreement1" value="" /> 약관동의
+    <input type="checkbox" name="U_checkAgreement2" id="U_checkAgreement2" value="" /> 약관동의
+
+    <br />
+    <br />
+    <input type="checkbox" id="spring" name="SEASON[]" value="1" />봄
+    <input type="checkbox" id="summer" name="SEASON[]" value="2" />여름
+    <input type="checkbox" id="fall" name="SEASON[]" value="3" />가을
+    <input type="checkbox" id="windter" name="SEASON[]" value="4" />겨울
+    <br />
+    <br />
+    <input type="submit" value="전송">
+  </form>
+
 </body>
 
 </html>
+[출처] [javascript] Checkbox : 체크박스 체크여부 확인|작성자 자바킹

@@ -7,6 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../css/style.css">
     <title>table modal Ex</title>
+    <script>
+        function parentInsertData(str) {
+            console.log(str);
+        }
+    </script>
 </head>
 
 <body>
@@ -24,7 +29,6 @@
                 <col width="12%" />
                 <col width="13%" />
             </colgroup>
-
             <tr>
                 <th>선택</th>
                 <th>카테고리</th>
@@ -67,36 +71,9 @@
     </main>
     <div class="btn-box">
         <input type="button" value="글쓰기" class="writeBtn"><input type="button" value="선택삭제" class="checkDelBtn"> <input
-            type="button" value="팝업창 호출" onclick="showPopup();" class="popup" />
+            type="button" value="팝업창 호출" onclick="showPopup();" id="up" />
     </div>
-    <!-- 모달을 만들어줄 박스 -->
-    <div class="modalBox_write hidden">
-        <!-- 모달의 배경 스타일을 만들어줄 구간 -->
-        <div class="modalBox_write_body"></div>
-        <!-- 모달창에 들어갈 내용 -->
-        <div class="write_section">
-            <h1></h1>
-            <input type="hidden" id="row_num">
-            <select id="car">
-                <option value="유머">유머</option>
-                <option value="게임">게임</option>
-                <option value="건강">건강</option>
-                <option value="스포츠">스포츠</option>
-            </select>
-            <!-- <input type="text" id="car" placeholder="카테고리"> -->
-            <br>
-            <br>
-            <input type="text" placeholder="제목" id="title">
-            <br>
-            <br>
-            <input type='name' id='name' placeholder="이름" />
-            <br>
-            <br>
-            <button id="modalWriteSubmitBtn" class=butb value="글쓰기"> 글쓰기</button> <button id="modalWriteCloseBtn"
-                class="btn">뒤로가기</button>
-        </div>
-    </div>
-    <script src="../js/index.js"></script>
+    <script src="../js/p_up.js"></script>
 </body>
 
 </html>

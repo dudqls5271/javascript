@@ -57,11 +57,13 @@ modalWriteCloseBtn.addEventListener("click", function () {
 });
 
 modalWriteSubmitBtn.addEventListener("click", function () {
+
     if (modalWriteTitle.innerText == "등록") {
         if (car.value == "" || name.value == "" || title.value == "") {
             alert("공백 입니다. 다시 입력해주세요")
         } else {
 
+            // const saveValue = todoInput.value;
             modalWriteBox.classList.add("hidden");
             var row = my_tbody.insertRow(1); // 상단에 추가
             //var row = my_tbody.insertRow(my_tbody.rows.length); // 하단에 추가
@@ -77,6 +79,7 @@ modalWriteSubmitBtn.addEventListener("click", function () {
             cell4.innerHTML = name.value;
             cell5.innerHTML = timeSetting();
             cell6.innerHTML = "<input type='button' value='수정' class='modifyBtn'><input type='button' value='삭제' class='delBtn'>";
+            // saveTodo(saveValue);
         }
     } else {
         let car_re = car.value;
